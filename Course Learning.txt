@@ -1,0 +1,105 @@
+  ============= The Repository Pattern - Consequences ==============
+
+== Increased Level of Abstraction.
+
+== Increased Maintainablility, Flexibility,Testability.
+
+== More Classes / Interfaces - less Duplicate Code .
+
+== Business Logic further away from the data.
+
+== Harder to Optmize certain Operations againist the data source.
+
+
+============================ New Leearnings =============================
+
+== In Our Startup Class, we Have two functions..
+   
+== First is ConfigureService. In this function we actually register the services.
+
+== Ordering to add new services in this function does't matter.
+
+== Second is Configure.
+
+==  in this Function when we want to add new middleware then order of writing
+
+   middleware is very important !!!
+
+
+====  Three Methods for Register a new Service..
+
+1- Add Transient and this one is instantiated for a individual method and not
+ the request itself. it's got a very short lifetime the repository will be created
+ and the destroyed just upon using an individual method, and that's too short.
+ 
+2- Add a Singleton, by the use of this options the service would be created the 
+ first time we use it when the application starts and the method goes to controller
+and created a new instance of the repository but then it would never be destroyed
+ until the application shuts down and that's too long.
+
+3- Add a Scoped , this one is the Correct Option, and this is the one that we will
+ use for almost everything.
+
+
+- So It's gonna be created when the HTTP Request comes into our API Creates
+a new Instance in the Controller, the Controller sees that it needs a repository
+So it Creates the instance of Repository.
+and when the request is finished then it disposes of both the controller and 
+the repository.
+
+And We Don't ourselves need to worry about disposing of the resources created
+
+when a request comes Because of these life cycles.
+
+
+
+==================== Why We Use LoggerFactory in .NET Core ====================
+= logs have been an essential part of troubleshooting application 
+ and infrastructure performance.
+
+=  Log data contains information such as out of memory exception
+   or hard disk errors .
+== This feature we deployed last week was working fine till yesterday now 
+
+ I have no idea why is it not working!" This is like a typical sentence you 
+
+hear from developers when there is no logging in place. It can be to a great 
+
+extent solved by having automated tests, still having logging and monitoring 
+
+gives you a different viewpoint. In this post, I am going to reveal the 
+
+importance of having logs for your code and monitoring your code to cut
+
+ down the firefighting time for bugs and errors by huge margins.
+
+
+== Generally, developers don't write any code that logs meaningful 
+
+ and relevant messages for the feature they are writing. Writing code
+
+ to log things may even be considered not essential and a waste of time 
+
+by developers who work in small projects. Which might be true to some point 
+
+but the benefits surely outweigh the cost.
+
+
+== The solution is simple, make logs and writing code to do logging first
+
+ class citizen in your code base. Logs are the medium through which your
+
+ app speaks to you. Logging is the foundation for solving your operational 
+
+problems so not having them is being in a communication void with your 
+
+application.
+
+
+== As an example, if you create a user, just log that the user has been 
+
+created successfully and if the user could not be created because of 
+
+let's say a database exception it is even more important to log the reason
+
+ behind the unsuccessful operation.
