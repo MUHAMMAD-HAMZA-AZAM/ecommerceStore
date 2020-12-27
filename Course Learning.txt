@@ -103,3 +103,90 @@ created successfully and if the user could not be created because of
 let's say a database exception it is even more important to log the reason
 
  behind the unsuccessful operation.
+
+
+===============================================================================
+
+---------------- API Generic Repository ----------------------------------
+
+-- It is very easy to register a service and their relevant repository which
+
+   implements that specific repository.
+
+-- but in case of Generic Repository , First of all we also need to add this to
+
+   our service container so that we can inject less wherever in our program.
+
+-- The Way that we add this is slightly different from this Because in this
+ 
+   case we don't know the types that we are going to be using with this 
+ 
+   repository at this time.
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+
+
+--- .NET Core — Using the Specification pattern alongside a generic Repository---
+
+-- The Repository and Unit of Work pattern are intended to create an abstraction layer 
+
+between the business logic layer and the data access layer of an application.
+
+
+------------------------- The Specification pattern ----------------------------
+
+-The Specification pattern allows us to encapsulate some piece of domain knowledge
+ 
+ into a single unit (the specification) and reuse it in different parts of the code base.
+
+- It provides us a good solution to the problem of where to place the querying, sorting and
+
+  paging logic since it describes a query in an object.
+
+- Why and how we should mix them?
+
+== In a large application with many domain objects and many possible queries, 
+ 
+the Repository pattern reduces the amount of code needed to deal with all the
+
+ querying that is needed. Adding to this, a generic Repository promotes the 
+
+Specification pattern, which encapsulates the query to be performed in a pure
+ 
+ object-oriented way. We can simply write code purely in terms of object and 
+ 
+  put SQL in the background.
+
+-- For example, to encapsulate a paged query that searches for recipes and need 
+  
+ 
+to include the users that have made such recipes, we can create a SearchRecipesWithUsers 
+
+specification which would take any parameters we need and have the overloads — allow a 
+
+class to have more than one method having the same name, if their argument lists are 
+
+different — we wish. The generic Repository would have a method that receives a specification 
+
+as an argument and would be able to return the expected result according to the provided specification.
+
+========================== Conclusion ======================================
+
+== Using the Specification pattern with the Unit Of Work/Repository pattern provides us with a very modular 
+
+  code, keeping our code organized and making it easy to add more complexity as the application grows.
+
+== As said, there is no silver bullet when coding or architecting an application, but I consider this 
+   approach as a good practice.
+
+
+== Describes a query in an Object.
+
+== Returns an IQuerable<T>
+
+== Generic List method takes Specification as Paramerter.
+
+== Specification Can  Have Meaningful Name.
+
+ LIke , ProductsWithTypesBrandsSpecification
+
+
