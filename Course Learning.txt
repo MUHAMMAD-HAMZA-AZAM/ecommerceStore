@@ -189,4 +189,26 @@ as an argument and would be able to return the expected result according to the 
 
  LIke , ProductsWithTypesBrandsSpecification
 
+===================  What is AutoMapper?
 
+== AutoMapper is a simple library that helps us to transform one object type
+
+ to another. It is a convention-based object-to-object mapper that requires
+
+ very little configuration. 
+
+The object-to-object mapping works by transforming an input object of one type
+
+ into an output object of a different type.
+
+
+== Profiles
+A good way to organize our mapping configurations is with Profiles. We need to 
+
+create classes that inherit from Profile class and put the configuration in the
+
+ constructor: 
+
+== our application starts and initializes AutoMapper, AutoMapper will scan our application
+
+ and look for classes that inherit from the Profile class and load their mapping configurations.

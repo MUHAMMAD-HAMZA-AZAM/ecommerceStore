@@ -1,4 +1,6 @@
-﻿using Core.Interfaces;
+﻿using API.DTO;
+using AutoMapper;
+using Core.Interfaces;
 using Core.PocoEntities;
 using Core.Specifications;
 using Microsoft.AspNetCore.Http;
@@ -15,26 +17,27 @@ namespace API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IGenericRepository<Product> _ProductRepo;
-
-        public ProductController(IGenericRepository<Product> ProductRepo)
+        private readonly IMapper _mapper;
+        public ProductController(IGenericRepository<Product> ProductRepo, IMapper mapper)
         {
             _ProductRepo = ProductRepo;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductReturnWithDTO>>> GetProducts()
         {
             var spec = new ProductsWithTypesAndBrandsSpecifications();
             var products = await _ProductRepo.ListAsync(spec);
-
-            return Ok(products);
+            return Ok(_mapper.Map<IReadOnlyList<Product>,IReadOnlyList<ProductReturnWithDTO>>(products));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductReturnWithDTO>> GetProduct(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecifications(id);
-            return await _ProductRepo.GetEntityWithSpec(spec);
+            var products= await _ProductRepo.GetEntityWithSpec(spec);
+            return _mapper.Map<Product, ProductReturnWithDTO>(products);
         }
     }
 }

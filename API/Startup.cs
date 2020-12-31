@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using InfraStructure.Data;
 using Core.Interfaces;
+using AutoMapper;
 
 namespace API
 {
@@ -31,6 +32,7 @@ namespace API
         {
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddAutoMapper(typeof(Startup));//Also Write this services.AddAutoMapper(typeof(MappingProfiles));
             services.AddRazorPages();
             services.AddControllers();
             services.AddDbContext<StoreContext>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
@@ -53,7 +55,11 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
