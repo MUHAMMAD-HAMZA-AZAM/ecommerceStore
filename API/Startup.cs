@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using InfraStructure.Data;
 using Core.Interfaces;
 using AutoMapper;
+using API.Errors;
 
 namespace API
 {
@@ -36,7 +37,25 @@ namespace API
             services.AddRazorPages();
             services.AddControllers();
             services.AddDbContext<StoreContext>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
-            //services.AddRouting();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+                {
+                    options.InvalidModelStateResponseFactory = actionContext =>
+                     {
+                         var errors = actionContext.ModelState
+                         .Where(x => x.Value.Errors.Count > 0)
+                         .SelectMany(x => x.Value.Errors)
+                         .Select(x => x.ErrorMessage).ToArray();
+
+                         var errorResponse = new ApiValidationErrorResponse
+                         {
+                             Errors = errors
+                         };
+                         return new BadRequestObjectResult(errorResponse);
+                     };
+
+                });
+
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddSwaggerGen(c =>
@@ -54,6 +73,7 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 

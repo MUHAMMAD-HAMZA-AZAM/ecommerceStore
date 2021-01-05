@@ -1,4 +1,4 @@
-  ============= The Repository Pattern - Consequences ==============
+    ============= The Repository Pattern - Consequences ==============
 
 == Increased Level of Abstraction.
 
@@ -212,3 +212,38 @@ create classes that inherit from Profile class and put the configuration in the
 == our application starts and initializes AutoMapper, AutoMapper will scan our application
 
  and look for classes that inherit from the Profile class and load their mapping configurations.
+
+
+=========================== API Error Handling =================================
+
+= Error Handling and Exceptions 
+=   Developer Exception Page
+
+= Validations Errors
+
+= Http reposne errrs
+
+= Customising the Errors
+
+= Middle 
+
+= Swagger
+
+= 1XX Codes: Informational codes. Rarely used in modern web apps.
+
+= 2XX Codes: Success codes. Tells the client that the request succeeded.
+
+= 3XX Codes: Redirect codes. Tells the client that they may need to redirect to another location.
+
+= 4XX Codes: Client Error codes. Tells the client that something was wrong with what it sent to the server.
+
+= 400 range Client Error (Pass Some Bad Data, Not Follow Validations)
+
+= 401 range means UnAuthorized
+
+= 404 range means Not Found
+
+= 5XX Codes: Server Error codes. Tells the client that something went wrong on the server's side, so that
+  the client may attempt the request again, possibly at a later time.
+
+

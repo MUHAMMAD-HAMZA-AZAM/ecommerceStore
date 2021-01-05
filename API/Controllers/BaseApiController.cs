@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-    
-    public class HomeController :BaseApiController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BaseApiController : ControllerBase
     {
-        [HttpGet]
-        public string Index()
-        
-        {
-            return " Api is Running Successfully !!";
-        }
+
     }
 }
