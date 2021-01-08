@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InfraStructure.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20201212214617_InitialCreating")]
-    partial class InitialCreating
+    [Migration("20210106215959_changePriceDataType")]
+    partial class changePriceDataType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,8 +41,8 @@ namespace InfraStructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductBrandId")
                         .HasColumnType("int");
