@@ -11,7 +11,7 @@
 == Harder to Optmize certain Operations againist the data source.
 
 
-============================ New Leearnings =============================
+============================ New Learnings =============================
 
 == In Our Startup Class, we Have two functions..
    
@@ -247,3 +247,90 @@ create classes that inherit from Profile class and put the configuration in the
   the client may attempt the request again, possibly at a later time.
 
 
+===================== Front End Framework =====================================
+
+To install Angular on your local system, you need the following:
+
+Node.js
+
+Angular requires a current, active LTS, or maintenance LTS version of Node.js.
+
+
+== If you are unsure what version of Node.js runs on your system, run node -v in a terminal window.
+
+
+== npm package manager
+
+Angular, the Angular CLI, and Angular applications depend on npm packages for many features and functions.
+
+ To download and install npm packages, you need an npm package manager. This guide uses the npm client command 
+
+line interface, which is installed with Node.js by default. To check that you have the npm client installed, 
+
+run npm -v in a terminal window.
+
+
+======= Why We Need to Install Angular CLI ====================
+
+== You use the Angular CLI to create projects, generate application 
+
+and library code, and perform a variety of ongoing development tasks 
+ such as testing, bundling, and deployment.
+
+== Useful Commands 
+
+=  node -v to check Installed Node Version
+
+= npm -v to check install npm version
+
+= npm install -g @angular/cli
+
+= ng --version to check installed version of Angualar
+
+
+================================= Angualr WorkSpace ============================
+
+== ng new ( Your Angualr Applcaation Name) 
+
+== The Angular CLI installs the necessary Angular npm packages and other dependencies. 
+
+
+
+
+========================= Add Bootstrap and Fontawesome ========================
+
+== Is it good to use a jquery library inside an angular 8 Project??????
+
+No, it is not a good idea. You are using jQuery coding practices in 
+
+an Angular app and this will cause you headaches - for once because 
+
+those practices go against the Angular spirit, and also because you 
+
+don't reap the benefits of Angular.
+
+== You can do everything you do with jquery with angular like DOM changes 
+
+, listen to event component event or windows event , create dynamic html 
+
+elemnt and angular will track all these kind of change and your app doesn't
+
+ have any side effect for example select elment value changes and angular
+
+ haven't got this kind of changes.
+
+
+
+=== we Will Avoid to use JQuery in our Angular Application, That's y We Are
+
+using ngx-bootstrap not Bootstrap that contains many Jquery Plugins.
+
+
+==== What is ngx-Bootstrap ??????
+
+
+== ngx-bootstrap contains all core (and not only) Bootstrap components
+
+ powered by Angular. So you don't need to include original JS components,
+
+ but we are using markup and css provided by Bootstrap.
