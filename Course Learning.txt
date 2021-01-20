@@ -334,3 +334,152 @@ using ngx-bootstrap not Bootstrap that contains many Jquery Plugins.
  powered by Angular. So you don't need to include original JS components,
 
  but we are using markup and css provided by Bootstrap.
+
+
+============= Angular Basics ======================================
+
+
+==================== Goal of this Section ===============================
+
+== To be Able to use the HTTP cliet to retrieve data from
+
+ the API.
+
+== To Understand the basics of "Observeables" and Typescript.
+
+
+== Always try to Use this Command to Create a New Command.
+
+== ng g c componentName --skip-tests
+
+
+============ Rules of Coding in Angular From Expertise =======================
+
+== Always use Reactive Forms For Any Type of Data Binding 
+
+== Always Use Interface to get the property type.
+
+== Always Bind Data in Object to send on Web Api / Try to abvoid Send Data on Web
+Api Using Parameters.
+
+== Use Camel Notation to Write Clean Code In Angualr.
+
+== Use Child View For Dom Manipluation.
+
+
+
+========================== Components Interaction ============================
+
+
+========================== Services In Angular ===============================
+
+
+== Need Of Creating Services in Angualr is Base on Some Good Programming 
+principles.
+
+
+==1st Prinicple == Do Not Repeat Yourself (DRY)
+
+== 2nd Principle == Single Responsibilty Principle.
+Means, A Component class should have only one Responsibilty,
+
+component class Responsibilty to control the html view logic.
+
+not should create the data for the Html View Logic.
+
+=== Xo What's Exactly the Solution for this Principle.
+
+== The Good and Better Optimize solution for this is "Service".
+
+
+=============== But Wht Actually the service is??? =========================== 
+
+== A Service is a class with a specific Purpose.
+
+== Why We need to use Service ??
+
+== To Share Data Between Multiple Components.
+
+== Implement Application Logic.
+
+== External Interaction.
+
+
+=== How do we Use Services OR How Angular Allows Us To Create and Use Services
+
+    in Angular ??
+
+
+==  Angular allows us to use Services with the way of Dependency Injection.
+
+== we will Learn about DI in Three Parts.
+
+== Code without DI - drawback.
+
+== DI as a Design Pattern.
+
+== DI as a Framework.
+
+
+=========  Code without DI (First Part)
+
+== DI Image
+
+========== DI as a Design Pattern =========
+
+
+== DI is a coding pattern in which a class receives its dependencies from
+ external sources rather than creating them itself.
+
+== it's Ok that u r following DI and a class receives its dependies from
+exteral sources. 
+
+== but if the number of dependencies is greater then a specific limit, then
+
+in this Way Angular DI Framework comes to solve this kind of Problem.
+
+
+
+================== HTTP & Observables =======================================
+
+== A sequence of items that arrive asynchronously over time.
+
+== HTTP Call - Single item
+
+== Single item - HTTP Response
+
+
+-------------------------- Introduction To TypeScript ------------------------
+
+========================= Declarations & Annotations ========================
+
+-- Typescript is Strongly Type Language, xo we have a advantage that by using
+   typescript is that, it will automatically identify the data type.
+
+    var x = 10; // this is simple called Type Infrence. 
+    var y = "Hamza";
+    var z= true;
+
+--  var a:number = 10; (:number) is Called Annotations. and this way is called
+  Declarations with Annotations.
+-- Remenber one thing is that, Initialization is Not Mandatory.
+
+-- Always Try to Use Annotations with Variables Declarations.
+
+
+-- TS Introducs a New DataType Called "any".
+-- By Using "any" Datatype refers that there is no any compile time checkng.
+
+
+------------------------------ Enumerations ---------------------------------
+
+== enum type are simple used to give friendlier names to numeric values, and 
+create a specific type of a variable. 
+
+
+===================== Wht is the Need of Interface ? ==========================
+
+== Interfaces are the most flexible way to describing types in Ts. Bcz
+ type information is erased from a typescript program when we compile it,xo
+ we don't have to worry abour the runtime overhead, we are going to add when 
+using interfaces.
