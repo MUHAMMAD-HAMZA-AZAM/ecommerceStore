@@ -4,7 +4,7 @@ export interface IProduct {
   name: string,
   descriptoon: string,
   price: number,
-  pictureUrl: string,
+  pictureURL: string,
   productType: string,
   productBrand: string
 }

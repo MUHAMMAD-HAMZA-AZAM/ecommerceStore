@@ -5,14 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="clientApp\src\app\models\Pagination.ts" />
-    <None Remove="clientApp\src\app\models\Product.ts" />
+    <None Remove="clientApp\src\app\shared\models\Brands.ts" />
+    <None Remove="clientApp\src\app\shared\models\Pagination.ts" />
+    <None Remove="clientApp\src\app\shared\models\Product.ts" />
+    <None Remove="clientApp\src\app\shared\models\productTypes.ts" />
+    <None Remove="clientApp\src\app\shared\models\shopParams.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.0" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,8 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="clientApp\src\app\models\Pagination.ts" />
-    <TypeScriptCompile Include="clientApp\src\app\models\Product.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\shared\models\Brands.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\shared\models\Pagination.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\shared\models\Product.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\shared\models\productTypes.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\shared\models\shopParams.ts" />
   </ItemGroup>
 
 </Project>

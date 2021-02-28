@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { HttpClient} from '@angular/common/http'
 import { error } from '@angular/compiler/src/util';
-import { IProduct } from './models/Product';
-import { IPagination } from './models/Pagination';
+import { IProduct } from './shared/models/Product';
+import { IPagination } from './shared/models/Pagination';
+import { ShopService } from './shop/shop.service';
 
 @Component({
   selector: 'app-root',
@@ -11,21 +12,11 @@ import { IPagination } from './models/Pagination';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  public products: IProduct[];
-
-  ngOnInit(): void  {
-    debugger;
-    this.http.get('http://localhost:10976/api/Product?PageIndex=1&PageSize=1&BrandId=1&TypeId=1').subscribe((response: IPagination) => {
-
-      this.products = response.data;
-      console.log(this.products);
-
-    }, error => {
-        console.log(error);
-    })
+  ngOnInit()  {
+    
   }
 
-  title = 'clientApp';
+  title = 'Big Bazaar';
 }

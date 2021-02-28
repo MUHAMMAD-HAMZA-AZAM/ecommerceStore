@@ -362,7 +362,7 @@ using ngx-bootstrap not Bootstrap that contains many Jquery Plugins.
 == Always Bind Data in Object to send on Web Api / Try to abvoid Send Data on Web
 Api Using Parameters.
 
-== Use Camel Notation to Write Clean Code In Angualr.
+== Use Camel Notation to Write Clean Code In Angular.
 
 == Use Child View For Dom Manipluation.
 
@@ -374,7 +374,7 @@ Api Using Parameters.
 ========================== Services In Angular ===============================
 
 
-== Need Of Creating Services in Angualr is Base on Some Good Programming 
+== Need Of Creating Services in Angular is Base on Some Good Programming 
 principles.
 
 
@@ -438,7 +438,9 @@ exteral sources.
 
 in this Way Angular DI Framework comes to solve this kind of Problem.
 
-
+-- DI is a Mechanisam where we inject services rather than creating
+using new keyword, decoupled service, change at one place and see effect 
+on many changes in one place.
 
 ================== HTTP & Observables =======================================
 
@@ -483,3 +485,75 @@ create a specific type of a variable.
  type information is erased from a typescript program when we compile it,xo
  we don't have to worry abour the runtime overhead, we are going to add when 
 using interfaces.
+
+
+=== In which case we prefer to use a class instead of Interface ===============
+
+-- A class provides an opportunity to initialize the values when we create a 
+ new instance of it.
+
+-- When we use interface it allows only to declaration to the proerties, instead
+of initialization of the proerties.
+
+
+
+==================== Routing & Navigation =====================================
+
+
+=================== Angular Professional Training =============================
+
+--Directives help you to attach behaviour in the HTML DOM.
+
+
+-- Structural Directives ---
+
+-- Change the DOM Layout by Adding and Removing elements.
+ 
+For Example :
+ ngIf
+ ngFor
+ ngSwitch
+
+
+ ------ Attribute Directives ------
+
+-- Change the appearance and behaviour of HTML elements.
+[hidden]
+[disabled]
+
+
+---- Component Directives -----
+
+ Directoves with templates. it's like  a user control. 
+
+
+
+============== Lazy Loading ===================================
+
+-- Lazy Loading means on demand Loading.
+
+-- Lazy Loading Concept is related to the routing concept.
+
+-- if we want lazy loading in our project then we must divide our 
+   project into the seperate seperate modules.
+
+-- Lazy Loading in One Line ( Don't Load something which you don't need.
+
+-- Lazy loading is a design pattern commonly used in computer programming to
+  defer initialization of an object until the point at which it is needed.
+-- It can contribute to efficiency in the program’s operation if properly and 
+ appropriately used.
+
+= Question How does lazy loading of Routes improve performance in Angular app?
+-- A Large scale application will contain lots of feature modules whcich need
+   not to be loaded all at once.
+-- The feature modules can be loaded asynchronously after the app has loaded
+   eitehr on demand or using different strategies.
+-- Reducing the size of bundle when the app loads initially improves the app
+  load times thus improving user experience.
+ 
+====================== ViewChild & ViewChildren =====================
+
+
+The @ViewChild and @ViewChildren decorators in Angular provide a way to access
+ and manipulate DOM elements, directives and components.
