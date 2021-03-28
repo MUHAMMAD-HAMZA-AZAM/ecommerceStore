@@ -552,8 +552,89 @@ For Example :
 -- Reducing the size of bundle when the app loads initially improves the app
   load times thus improving user experience.
  
+
+===================== Loading Indicators =====================================
+
+Q) Why we need loading indicators in our SPA Application??
+
+Ans: We need loading indicator in that case in which the app is waitng for 
+    data from the API.
+
 ====================== ViewChild & ViewChildren =====================
 
 
 The @ViewChild and @ViewChildren decorators in Angular provide a way to access
  and manipulate DOM elements, directives and components.
+
+
+================== Module 13 (Basket) =============================
+
+-- In-memory data structure store.
+-- Suports strings,hashes,lists,sets,etc.
+-- Key/Value Store.
+-- Fast
+-- Persists data by using snapshots every minute.
+-- Data can be given time to live.
+-- Great for caching data.
+-- Global storage,Persistance Storage,Redis
+-- Redis ( Remote Directory Server )
+      Benefits of Redis
+
+
+
+======================= Identity =============================================
+
+-- Add References in Difference Projects
+ 
+ (Infrastructure)
+ - Microsoft.AspNetCore.Identity
+ - Microsoft.AspNetCore.Identity.EntityFrameworkCore
+ - System.IdentityModels.Tokens
+ - System.IdentityModels.Jwt
+
+ (API)
+ - Microsoft.AspNetCore.Authentication.JwtBearer
+
+ (Core)
+- Microsoft.Extensions.Identity.Stores 
+
+
+
+Add-Migration InitialCreate -Context AppIdentityDbContext
+
+Update-Database -Context AppIdentityDbContext
+
+
+
+=================== Angualr Forms ====================================
+
+ -- FormsModule--                  ---ReactiveFormsModule
+   (Template-driven)                   (Reactive)
+  
+***** TDF Features ****                   ****** Reactive Forms Featires *****
+
+= Easy to Use                              = More Flexible
+= Good for simple scenarious.              = Good for any scenerio
+= Two Way Binding (uses ngModel).          = Immutable data model 
+= Minimal component code.                  = More Component code/less markup
+= Automatic tracking by angular.           = Reactive transformations
+= Testing is Hard.                         = Testing is Easier
+
+
+***************** Building blocks of forms *********************************
+
+--- (FormControl)
+
+the form control is going to be attached to html form inputs.
+ (formControl) itself a class inside is the class which has four thngs.
+  - Value
+  - Validation Status
+  - User Interactions
+  - Events  
+
+--- (FormGroup)
+
+A Form Group is collection of form controls.
+
+--- (FormArray)  
+ 

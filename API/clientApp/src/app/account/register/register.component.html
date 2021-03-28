@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="col-3">
+    <form [formGroup]="loginForm" class="form-signin">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      </div>
+
+      <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Email address">
+        <label for="inputEmail">Email address</label>
+        <div *ngIf="f.email?.errors">
+          <div *ngIf="f.email.invalid && (f.email.touched || f.email.dirty)">
+            <small class="text-danger" *ngIf="f.email.errors?.required">* Please enter email.</small>
+            <small class="text-danger" *ngIf="f.email.errors?.pattern">Please provide a valid email address.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password">
+        <label for="inputPassword">Password</label>
+        <div *ngIf="f.password?.errors">
+          <div *ngIf="f.password.invalid && (f.password.touched || f.password.dirty)">
+            <small class="text-danger" *ngIf="f.password?.required">Please enter password.</small>
+            <small class="text-danger" *ngIf="f.password?.pattern">Please enter valid password.</small>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="registerBtn()">Sign up</button>
+    </form>
+  </div>
+</div>
+

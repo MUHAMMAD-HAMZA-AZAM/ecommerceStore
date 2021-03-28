@@ -15,6 +15,9 @@ using InfraStructure.Data;
 using Core.Interfaces;
 using AutoMapper;
 using API.Errors;
+using StackExchange.Redis;
+using InfraStructure.IdentityData;
+using Core.PocoEntities.IdentityModels;
 
 namespace API
 {
@@ -33,10 +36,20 @@ namespace API
         {
             services.AddScoped<IProductRepository,ProductRepository>();
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddTransient<IBasketRepository,BasketRepository>();
             services.AddAutoMapper(typeof(Startup));//Also Write this services.AddAutoMapper(typeof(MappingProfiles));
             services.AddRazorPages();
             services.AddControllers();
             services.AddDbContext<StoreContext>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("IdentityConnection")));
+
+            services.AddSingleton<ConnectionMultiplexer>(c => {
+                var configuration = ConfigurationOptions.Parse(_configuration.GetConnectionString("Redis"),true);
+
+                return ConnectionMultiplexer.Connect(configuration);
+            
+            });
+
 
             services.Configure<ApiBehaviorOptions>(options =>
                 {
@@ -55,6 +68,8 @@ namespace API
                      };
 
                 });
+            services.AddIdentityCore<AppUser>()
+          .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             services.AddMvc();
             services.AddControllersWithViews();

@@ -10,7 +10,8 @@ import { ShopModule } from './shop/shop.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
-
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { BasketModule } from './basket/basket.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +23,10 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
+    BasketModule,
     HomeModule,
-    RouterModule
+    BreadcrumbModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
